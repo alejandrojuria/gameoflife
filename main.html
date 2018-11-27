@@ -1,11 +1,22 @@
 <html>
   <body>
     <canvas id="canvas"></canvas>
-    <br></br>
+    <br>
+    <p id="demo">Demo</p>
+    </br>
     <script src="game_of_life.js"></script>
 
-    <button onclick="">Start</button>
-    <button onclick="">Stop</button>
-    <button onlick="">Restart</button>
+    <button onclick="start()">Start</button>
+    <button onclick="clearBoard()">Restart</button>
+
+    <form>
+      Number of generations<br>
+      <input type="number" id="generations"></input>
+      </br>
+      Time step (s)<br>
+      <input type="number" id="timestep"></input>
+      </br>
+    </form>
+
   </body>
 </html>
