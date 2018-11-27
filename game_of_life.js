@@ -41,8 +41,7 @@ function fillBlock(i,j){
 
 function clearBlock(i,j){
   ctx.fillStyle="#ffffff";
-  ctx.fillRect(i*pw, j*ph, pw, ph);
-  drawBoard();
+  ctx.fillRect(i*pw + 1, j*ph + 1, pw - 1, ph - 1);
 };
 
 // Logical functions
