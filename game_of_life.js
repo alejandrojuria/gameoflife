@@ -23,15 +23,14 @@ canvas.style.border = "1px solid";
 function drawBoard(){
   // Vertical lines
   for(var x = pw; x < bw; x+=pw){
-    ctx.moveTo(x, 0);
-    ctx.lineTo(x, bh);
+    ctx.moveTo(x + 0.5, 0);
+    ctx.lineTo(x + 0.5, bh);
   }
   // Horizontal lines
   for(var y = ph; y < bh; y+=ph){
-    ctx.moveTo(0, y);
-    ctx.lineTo(bw, y);
+    ctx.moveTo(0, y + 0.5);
+    ctx.lineTo(bw, y + 0.5);
   }
-  ctx.strokeStyle = "black";
   ctx.stroke();
 };
 
@@ -43,6 +42,7 @@ function fillBlock(i,j){
 function clearBlock(i,j){
   ctx.fillStyle="#ffffff";
   ctx.fillRect(i*pw, j*ph, pw, ph);
+  drawBoard();
 };
 
 // Logical functions
@@ -51,4 +51,3 @@ drawBoard();
 fillBlock(nx/2,ny/2);
 fillBlock(nx/2+1,ny/2+1);
 clearBlock(nx/2+1,ny/2+1);
-clearBlock(nx/2-1,ny/2-1);
