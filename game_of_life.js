@@ -81,7 +81,8 @@ function clearBoard(){
   drawBoard();
   document.getElementById('ngen').innerHTML = 'Generation #';
 
-  return;
+  // To break current iteration
+  location.reload();
 };
 
 function start(){
