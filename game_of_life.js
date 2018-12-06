@@ -21,6 +21,16 @@ canvas.style.border = "1px solid";
 // Add click listener to create active cells
 canvas.addEventListener('click', onClick);
 
+// Mouse follower to paint blocks by holding
+var mouseIsDown = false;
+canvas.addEventListener('mousedown', function(){mouseIsDown = true});
+canvas.addEventListener('mouseup', function(){mouseIsDown = false});
+canvas.addEventListener('mousemove', function(){
+  if(mouseIsDown){
+    paintOnHold(event);
+  }
+})
+
 // -------------------------- Graphical functions --------------------------
 
 function drawBoard(){
@@ -115,6 +125,22 @@ function onClick(event){
     clearBlock(i,j);
     cells[i][j] = 0;
   }
+};
+
+function paintOnHold(event){
+  setTimeout(function() {
+    var xpos = event.pageX - canvas.offsetLeft;
+    var ypos = event.pageY - canvas.offsetTop;
+
+    var j = Math.floor(xpos/pw);
+    var i = Math.floor(ypos/ph);
+
+    var j = Math.floor(xpos/pw);
+    var i = Math.floor(ypos/ph);
+
+    fillBlock(i,j);
+    cells[i][j] = 1;
+  }, 10);
 };
 
 function aliveNeigh(i,j){
