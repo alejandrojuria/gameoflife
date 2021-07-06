@@ -19,7 +19,7 @@ canvas.width = bw;
 canvas.style.border = "1px solid";
 
 // Add click listener to create active cells
-if (!mouseIsDown){canvas.addEventListener('click', onClick);}
+if(mouseIsDown === false){canvas.addEventListener('click', onClick);}
 
 // Mouse follower to paint blocks by holding
 var mouseIsDown = false;
