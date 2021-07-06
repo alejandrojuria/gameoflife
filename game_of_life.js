@@ -132,7 +132,6 @@ function onClick(event){
 };
 
 function paintOnHold(event){
-    setTimeout(function() {
     var xpos = event.pageX - canvas.offsetLeft;
     var ypos = event.pageY - canvas.offsetTop;
 
@@ -144,7 +143,6 @@ function paintOnHold(event){
 
     fillBlock(i,j);
     cells[i][j] = 1;
-  }, 1);
 };
 
 function aliveNeigh(i,j){
