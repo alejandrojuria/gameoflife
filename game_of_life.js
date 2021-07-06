@@ -18,17 +18,21 @@ canvas.height = bh;
 canvas.width = bw;
 canvas.style.border = "1px solid";
 
+var mouseIsDown = false;
+var mouseIsMoving = false;
+
 // Add click listener to create active cells
-if(mouseIsDown === false){canvas.addEventListener('click', onClick);}
+if(!mouseIsMoving){canvas.addEventListener('click', onClick);}
 
 // Mouse follower to paint blocks by holding
-var mouseIsDown = false;
 canvas.addEventListener('mousedown', function(){mouseIsDown = true});
 canvas.addEventListener('mouseup', function(){mouseIsDown = false});
 canvas.addEventListener('mousemove', function(){
+  mouseIsMoving = true;
   if(mouseIsDown){
     paintOnHold(event);
   }
+  mouseIsMoving = false;
 })
 
 // -------------------------- Graphical functions --------------------------
@@ -128,7 +132,7 @@ function onClick(event){
 };
 
 function paintOnHold(event){
-  setTimeout(function() {
+    setTimeout(function() {
     var xpos = event.pageX - canvas.offsetLeft;
     var ypos = event.pageY - canvas.offsetTop;
 
